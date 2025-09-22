@@ -1,74 +1,65 @@
 html, body {
   margin: 0;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.radial {
+.circle-container {
   position: relative;
   width: 800px;
   height: 800px;
 }
 
-/* --- STACK BASE --- */
-.stack {
+/* --- PAIR BASE --- */
+.pair {
   position: absolute;
   top: 50%;
   left: 50%;
   transform-origin: center center;
 }
 
-/* BUTTONS */
+/* rotate each pair evenly */
+.pair.a { transform: rotate(0deg); }
+.pair.b { transform: rotate(60deg); }
+.pair.c { transform: rotate(120deg); }
+.pair.d { transform: rotate(180deg); }
+.pair.e { transform: rotate(240deg); }
+.pair.f { transform: rotate(300deg); }
+
+/* --- STACKS INSIDE PAIRS --- */
+.stack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center center;
+}
+
+/* left/right offset (mirror separation) */
+.stack.l { transform: translateX(-30px); }
+.stack.r { transform: translateX(30px); }
+
+/* --- BUTTONS --- */
 button {
   height: 40px;
   width: 50px;
   border-radius: 20px;
   border: 2px solid aqua;
-  background-color: aqua;
+  background: transparent;
   position: absolute;
-  left: -35px; /* center horizontally (half button width) */
-  top: -20px;  /* center vertically (half button height) */
+  left: -25px; /* half width */
+  top: -20px;  /* half height */
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 button.selected {
-  background-color: lime; /* or any color you want for “on” */
+  background-color: lime;
   border-color: lime;
 }
 
-
-/* distance outward from the center */
+/* outward levels from center */
 .l4 { transform: translateY(-125px); }
 .l3 { transform: translateY(-175px); }
 .l2 { transform: translateY(-225px); }
-
-/* --- PAIR SEPARATION --- */
-.left  { transform: translateX(-10px); }
-.right { transform: translateX(10px); }
-
-/* --- ROTATIONS --- */
-/* Pair 1: 0° */
-.pair1.left  { transform: rotate(0deg) translateX(-30px); }
-.pair1.right { transform: rotate(0deg) translateX(30px); }
-
-/* Pair 2: 60° */
-.pair2.left  { transform: rotate(60deg) translateX(-30px); }
-.pair2.right { transform: rotate(60deg) translateX(30px); }
-
-/* Pair 3: 120° */
-.pair3.left  { transform: rotate(120deg) translateX(-30px); }
-.pair3.right { transform: rotate(120deg) translateX(30px); }
-
-/* Pair 4: 180° */
-.pair4.left  { transform: rotate(180deg) translateX(-30px); }
-.pair4.right { transform: rotate(180deg) translateX(30px); }
-
-/* Pair 5: 240° */
-.pair5.left  { transform: rotate(240deg) translateX(-30px); }
-.pair5.right { transform: rotate(240deg) translateX(30px); }
-
-/* Pair 6: 300° */
-.pair6.left  { transform: rotate(300deg) translateX(-30px); }
-.pair6.right { transform: rotate(300deg) translateX(30px); }
