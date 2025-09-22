@@ -2,16 +2,14 @@ from flask import Flask, request, Response
 from flask_cors import CORS
 from networktables import NetworkTables as nt
 
-# Use '-d' to connect to localhost
 sim = False
 
-# nt.initialize(server="localhost" if localhost else "10.14.77.2")
 nt.initialize(server="127.0.0.1" if sim else "10.14.77.2")
 
 app = Flask(__name__)
 CORS(app)
 
-TABLE = "Dashboard"  # Table for toggles
+TABLE = "Dashboard"
 
 @app.route('/webhook', methods=['POST'])
 def update_dashboard():

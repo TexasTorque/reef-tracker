@@ -8,7 +8,6 @@ export default function App() {
     setButtonStates((prev) => {
       const newStates = { ...prev, [id]: !prev[id] };
 
-      // Build nested map (reefMap)
       const reefMap = {};
       ["a", "b", "c", "d", "e", "f"].forEach((pair) => {
         const sides = ["l", "r"].map((side) =>
@@ -20,7 +19,7 @@ export default function App() {
         reefMap[pair] = sides;
       });
 
-      // Send to Python webhook
+      // send to python webhook
       fetch("http://127.0.0.1:1477/webhook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

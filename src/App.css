@@ -13,7 +13,6 @@ html, body {
   height: 800px;
 }
 
-/* --- PAIR BASE --- */
 .pair {
   position: absolute;
   top: 50%;
@@ -21,7 +20,6 @@ html, body {
   transform-origin: center center;
 }
 
-/* rotate each pair evenly */
 .pair.a { transform: rotate(0deg); }
 .pair.b { transform: rotate(60deg); }
 .pair.c { transform: rotate(120deg); }
@@ -29,7 +27,6 @@ html, body {
 .pair.e { transform: rotate(240deg); }
 .pair.f { transform: rotate(300deg); }
 
-/* --- STACKS INSIDE PAIRS --- */
 .stack {
   position: absolute;
   top: 0;
@@ -37,11 +34,9 @@ html, body {
   transform-origin: center center;
 }
 
-/* left/right offset (mirror separation) */
 .stack.l { transform: translateX(-30px); }
 .stack.r { transform: translateX(30px); }
 
-/* --- BUTTONS --- */
 button {
   height: 40px;
   width: 50px;
@@ -49,8 +44,8 @@ button {
   border: 2px solid aqua;
   background: transparent;
   position: absolute;
-  left: -25px; /* half width */
-  top: -20px;  /* half height */
+  left: -25px;
+  top: -20px;
   transition: background-color 0.2s, border-color 0.2s;
 }
 
@@ -59,7 +54,6 @@ button.selected {
   border-color: lime;
 }
 
-/* outward levels from center */
 .l4 { transform: translateY(-125px); }
 .l3 { transform: translateY(-175px); }
 .l2 { transform: translateY(-225px); }
