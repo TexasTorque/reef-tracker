@@ -2,7 +2,7 @@ from flask import Flask, request, Response
 from flask_cors import CORS
 from networktables import NetworkTables as nt
 
-sim = False
+sim = True
 
 nt.initialize(server="127.0.0.1" if sim else "10.14.77.2")
 

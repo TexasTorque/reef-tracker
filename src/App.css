@@ -20,12 +20,12 @@ html, body {
   transform-origin: center center;
 }
 
-.pair.a { transform: rotate(0deg); }
-.pair.b { transform: rotate(60deg); }
-.pair.c { transform: rotate(120deg); }
-.pair.d { transform: rotate(180deg); }
-.pair.e { transform: rotate(240deg); }
-.pair.f { transform: rotate(300deg); }
+.pair.a { transform: rotate(180deg); }
+.pair.b { transform: rotate(120deg); }
+.pair.c { transform: rotate(60deg); }
+.pair.d { transform: rotate(0deg); }
+.pair.e { transform: rotate(300deg); }
+.pair.f { transform: rotate(240deg); }
 
 .stack {
   position: absolute;
@@ -34,8 +34,8 @@ html, body {
   transform-origin: center center;
 }
 
-.stack.l { transform: translateX(-30px); }
-.stack.r { transform: translateX(30px); }
+.stack.l { transform: translateX(30px); }
+.stack.r { transform: translateX(-30px); }
 
 button {
   height: 40px;
