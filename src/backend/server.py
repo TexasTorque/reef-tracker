@@ -28,5 +28,18 @@ def update_dashboard():
 
     return Response(status=200)
 
+@app.route('/algae-webhook', methods=['POST'])
+def update_algae_dashboard():
+    data = request.json
+    if data:
+        table = nt.getTable(TABLE)
+
+        for side, value in data.items():
+            table.putBoolean(f"algae-{side}", value)
+
+        print("Updated Dashboard/Algae:", data)
+
+    return Response(status=200)
+
 if __name__ == '__main__':
     app.run(debug=True, port=1477, host='0.0.0.0')

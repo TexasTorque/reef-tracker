@@ -19,12 +19,25 @@ export default function App() {
         reefMap[pair] = sides;
       });
 
-      // send to python webhook
+      // Create algaeMap (simplified side-based)
+      const algaeMap = {};
+      ["a", "b", "c", "d", "e", "f"].forEach((side) => {
+        algaeMap[side] = !!newStates[side];
+      });
+
+      // send reefMap to original webhook
       fetch("http://127.0.0.1:1477/webhook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(reefMap),
-      }).catch((err) => console.error("Webhook failed:", err));
+      }).catch((err) => console.error("Reef webhook failed:", err));
+
+      // send algaeMap to new webhook
+      fetch("http://127.0.0.1:1477/algae-webhook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(algaeMap),
+      }).catch((err) => console.error("Algae webhook failed:", err));
 
       return newStates;
     });
@@ -50,9 +63,20 @@ export default function App() {
     </div>
   );
 
+  const renderAlgaeSide = (side) => (
+    <div className={`algae-side ${side}`} key={side}>
+      {/* Green circle below each algae side - now clickable */}
+      <div 
+        className={`green-circle ${buttonStates[side] ? "selected" : ""}`}
+        onClick={() => handleToggle(side)}
+      ></div>
+    </div>
+  );
+
   return (
     <div className="circle-container">
       {["a", "b", "c", "d", "e", "f"].map((pair) => renderPair(pair))}
+      {["a", "b", "c", "d", "e", "f"].map((side) => renderAlgaeSide(side))}
     </div>
   );
 }

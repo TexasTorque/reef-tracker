@@ -37,6 +37,20 @@ html, body {
 .stack.l { transform: translateX(30px); }
 .stack.r { transform: translateX(-30px); }
 
+.algae-side {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+}
+
+.algae-side.a { transform: rotate(180deg); }
+.algae-side.b { transform: rotate(120deg); }
+.algae-side.c { transform: rotate(60deg); }
+.algae-side.d { transform: rotate(0deg); }
+.algae-side.e { transform: rotate(300deg); }
+.algae-side.f { transform: rotate(240deg); }
+
 button {
   height: 40px;
   width: 50px;
@@ -57,3 +71,23 @@ button.selected {
 .l4 { transform: translateY(-125px); }
 .l3 { transform: translateY(-175px); }
 .l2 { transform: translateY(-225px); }
+
+.green-circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lime;
+  border: 2px solid lime;
+  left: -15px;
+  top: -15px;
+  transform: translateY(-75px) scale(1.2);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.green-circle.selected {
+  background-color: darkgreen;
+  border-color: darkgreen;
+  transform: translateY(-75px) scale(1.0);
+}
