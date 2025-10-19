@@ -8,4 +8,4 @@
 * To run the development web app, run `npm start` in the terminal.
 * Then, run the `server.py` file to start the server.
 
-**Developed by [Tima Gezalov](www.github.com/timagez)**
+**Developed by [Tima Gezalov](https://www.github.com/timagez)**
